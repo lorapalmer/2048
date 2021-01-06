@@ -10,7 +10,6 @@ MatrixView.prototype = Object.create(BaseView.prototype);
 MatrixView.prototype.constructor = MatrixView;
 
 MatrixView.prototype.beforeRender = function () {
-    // console.log(this.matrixModel)
     this.matrixModel.subscribe('changeData', this.reRender, this);
 }
 
@@ -30,6 +29,7 @@ MatrixView.prototype.render = function () {
 }
 
 MatrixView.prototype.afterRender = function () {
+    window.onkeydown = this.controller.onKeyPress.bind(this.controller);
     var newGameBtn = document.getElementById('newGameBtn');
     newGameBtn.addEventListener('click', this.controller.onClickNewGame.bind(this.controller));
 }

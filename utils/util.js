@@ -6,3 +6,11 @@ function templateStr(tplString, attributes) {
     }
     return tplString;
 }
+
+function randomCell() {
+    return Math.floor(Math.random() * 4);
+}
+
+function randomCellValue() {
+    return Math.random() < 0.9 ? 2 : 4;
+}

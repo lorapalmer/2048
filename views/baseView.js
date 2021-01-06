@@ -10,9 +10,19 @@ BaseView.prototype.show = function (element) {
     this.afterRender();
 }
 
-BaseView.prototype.reRender = function () {
-    this.rootElement.innerHTML = this.render();
+BaseView.prototype.render = function () {
+    throw new Error('Need to override render method');
 }
+
+BaseView.prototype.beforeUpdate = function () {};
+
+BaseView.prototype.reRender = function () {
+    this.beforeUpdate();
+    this.rootElement.innerHTML = this.render();
+    this.afterUpdate();
+}
+
+BaseView.prototype.afterUpdate = function () {};
 
 BaseView.prototype.beforeRender = function () {};
 BaseView.prototype.afterRender = function () {};
