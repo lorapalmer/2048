@@ -14,13 +14,12 @@ MatrixView.prototype.beforeRender = function () {
 }
 
 MatrixView.prototype.render = function () {
-    // console.log('render')
     var i, j, attributes = this.matrixModel.attributes, str = '';
 
-    for(i = 0; i < attributes.size.width; i += 1) {
+    for (i = 0; i < attributes.size.width; i += 1) {
         str += '<div class="row">';
-        for(j = 0; j < attributes.size.height; j += 1) {
-            str += '<div class="cell appear-' + attributes.grid[i][j] +' ">' + attributes.grid[i][j] + '</div>';
+        for (j = 0; j < attributes.size.height; j += 1) {
+            str += '<div class="cell appear-' + attributes.grid[i][j] + ' ">' + attributes.grid[i][j] + '</div>';
         }
         str += '</div>';
     }
